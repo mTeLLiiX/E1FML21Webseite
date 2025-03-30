@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1FL2 - Präfixberechnung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="prefix.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">E1FL2</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#theory">Theorie</a>
+            <a href="#calculator">Rechner</a>
+            <a href="#practice">Übungen</a>
+            <a href="#quiz">Quiz</a>
+            <button id="darkModeToggle" class="theme-toggle">🌙</button>
+            <button onclick="logout()" class="logout-button" data-translate="dashboard.logout">Abmelden</button>
+        </div>
+    </nav>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" onclick="changeLanguage('de')">🇩🇪</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">🇬🇧</button>
+        <button class="lang-btn" onclick="changeLanguage('ru')">🇷🇺</button>
+        <button class="lang-btn" onclick="changeLanguage('so')">🇸🇴</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 data-translate="topics.prefix">Präfixberechnung</h1>
+            <p>Lerne die Berechnung von Netzwerkpräfixen</p>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="prefix-progress"></div>
+                </div>
+                <p>Dein Fortschritt: <span id="progress-text">0%</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theory Section -->
+    <section id="theory" class="theory-section">
+        <h2>Theoretische Grundlagen</h2>
+        <div class="theory-grid">
+            <div class="theory-card">
+                <h3>1. IP-Adressen</h3>
+                <p>Grundlagen und Notation</p>
+                <div class="theory-content">
+                    <pre><code>IPv4: 192.168.1.1/24
+IPv6: 2001:db8::1/64</code></pre>
+                    <p>Lerne die Struktur von IP-Adressen und ihre Notation.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(1)">Mehr erfahren</button>
+            </div>
+            <div class="theory-card">
+                <h3>2. Präfixlänge</h3>
+                <p>Bedeutung und Berechnung</p>
+                <div class="theory-content">
+                    <pre><code>/24 = 255.255.255.0
+/16 = 255.255.0.0</code></pre>
+                    <p>Verstehe die Bedeutung der Präfixlänge in IP-Adressen.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(2)">Mehr erfahren</button>
+            </div>
+            <div class="theory-card">
+                <h3>3. Netzwerkberechnung</h3>
+                <p>Netzwerkadresse und Broadcast</p>
+                <div class="theory-content">
+                    <pre><code>Netzwerk: 192.168.1.0/24
+Broadcast: 192.168.1.255</code></pre>
+                    <p>Lerne die Berechnung von Netzwerk- und Broadcast-Adressen.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(3)">Mehr erfahren</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <h2>Präfixrechner</h2>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label for="ip-input">IP-Adresse:</label>
+                <input type="text" id="ip-input" placeholder="z.B. 192.168.1.1">
+            </div>
+            <div class="input-group">
+                <label for="prefix-input">Präfixlänge:</label>
+                <input type="number" id="prefix-input" min="0" max="32" placeholder="z.B. 24">
+            </div>
+            <button onclick="calculatePrefix()" class="calculate-btn">Berechnen</button>
+            <div class="result-container">
+                <h3>Ergebnisse</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-label">Netzwerkadresse:</span>
+                        <span id="network-address" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Broadcast-Adresse:</span>
+                        <span id="broadcast-address" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Erste nutzbare IP:</span>
+                        <span id="first-ip" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Letzte nutzbare IP:</span>
+                        <span id="last-ip" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Anzahl nutzbarer IPs:</span>
+                        <span id="usable-ips" class="result-value"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="practice-section">
+        <h2>Praktische Übungen</h2>
+        <div class="practice-container">
+            <div class="exercise-card">
+                <h3>Übung 1: Netzwerkadresse berechnen</h3>
+                <p>Berechne die Netzwerkadresse für 192.168.1.100/24</p>
+                <button onclick="showHint(1)" class="hint-btn">Tipp anzeigen</button>
+                <div id="hint-1" class="hint-content" style="display: none;">
+                    <p>1. Konvertiere die IP in Binär</p>
+                    <p>2. Setze die Host-Bits auf 0</p>
+                    <p>3. Konvertiere zurück in Dezimal</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3>Übung 2: Broadcast-Adresse</h3>
+                <p>Berechne die Broadcast-Adresse für 10.0.0.0/8</p>
+                <button onclick="showHint(2)" class="hint-btn">Tipp anzeigen</button>
+                <div id="hint-2" class="hint-content" style="display: none;">
+                    <p>1. Konvertiere die IP in Binär</p>
+                    <p>2. Setze die Host-Bits auf 1</p>
+                    <p>3. Konvertiere zurück in Dezimal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <h2>Teste dein Wissen</h2>
+        <div class="quiz-container">
+            <div id="quiz-question" class="quiz-question">
+                <h3>Was ist die Netzwerkadresse für 192.168.1.100/24?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="checkAnswer(0)">A) 192.168.1.0</button>
+                    <button class="quiz-option" onclick="checkAnswer(1)">B) 192.168.1.1</button>
+                    <button class="quiz-option" onclick="checkAnswer(2)">C) 192.168.1.255</button>
+                    <button class="quiz-option" onclick="checkAnswer(3)">D) 192.168.0.0</button>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback"></div>
+            </div>
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+                <p>Frage <span id="current-question">1</span> von <span id="total-questions">5</span></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="script.js"></script>
+    <script src="prefix.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1FL2 - SQL Datenbanken</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sql.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">E1FL2</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#theory">Theorie</a>
+            <a href="#practice">Übungen</a>
+            <a href="#quiz">Quiz</a>
+            <button id="darkModeToggle" class="theme-toggle">🌙</button>
+            <button onclick="logout()" class="logout-button" data-translate="dashboard.logout">Abmelden</button>
+        </div>
+    </nav>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" onclick="changeLanguage('de')">🇩🇪</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">🇬🇧</button>
+        <button class="lang-btn" onclick="changeLanguage('ru')">🇷🇺</button>
+        <button class="lang-btn" onclick="changeLanguage('so')">🇸🇴</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 data-translate="topics.sql">SQL-Datenbanken</h1>
+            <p>Lerne die Grundlagen der Datenbankverwaltung</p>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="sql-progress"></div>
+                </div>
+                <p>Dein Fortschritt: <span id="progress-text">0%</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theory Section -->
+    <section id="theory" class="theory-section">
+        <h2>Theoretische Grundlagen</h2>
+        <div class="theory-grid">
+            <div class="theory-card">
+                <h3>1. Einführung in SQL</h3>
+                <p>Grundlegende Konzepte und Syntax</p>
+                <div class="theory-content">
+                    <pre><code>SELECT * FROM users;</code></pre>
+                    <p>SQL (Structured Query Language) ist die Standardsprache für die Verwaltung von relationalen
+                        Datenbanken.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(1)">Mehr erfahren</button>
+            </div>
+            <div class="theory-card">
+                <h3>2. Datenbank-Design</h3>
+                <p>Tabellen, Beziehungen und Normalisierung</p>
+                <div class="theory-content">
+                    <pre><code>CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(255)
+);</code></pre>
+                    <p>Lerne, wie du effiziente Datenbankstrukturen erstellst.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(2)">Mehr erfahren</button>
+            </div>
+            <div class="theory-card">
+                <h3>3. CRUD-Operationen</h3>
+                <p>Create, Read, Update, Delete</p>
+                <div class="theory-content">
+                    <pre><code>INSERT INTO users (name, email)
+VALUES ('John', 'john@example.com');</code></pre>
+                    <p>Die grundlegenden Operationen für die Datenverwaltung.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(3)">Mehr erfahren</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="practice-section">
+        <h2>Praktische Übungen</h2>
+        <div class="practice-container">
+            <div class="sql-editor">
+                <div class="editor-header">
+                    <h3>SQL Editor</h3>
+                    <button onclick="runQuery()" class="run-btn">Ausführen</button>
+                </div>
+                <textarea id="sql-input" placeholder="Geben Sie hier Ihre SQL-Abfrage ein..."></textarea>
+                <div class="editor-footer">
+                    <button onclick="clearEditor()" class="clear-btn">Löschen</button>
+                    <button onclick="formatSQL()" class="format-btn">Formatieren</button>
+                </div>
+            </div>
+            <div class="result-container">
+                <h3>Ergebnis</h3>
+                <div id="query-result" class="query-result"></div>
+            </div>
+        </div>
+        <div class="exercise-list">
+            <h3>Übungsaufgaben</h3>
+            <div class="exercise-card">
+                <h4>Übung 1: Einfache SELECT-Abfrage</h4>
+                <p>Schreibe eine Abfrage, die alle Benutzer aus der Tabelle 'users' anzeigt.</p>
+                <button onclick="showHint(1)" class="hint-btn">Tipp anzeigen</button>
+                <div id="hint-1" class="hint-content" style="display: none;">
+                    <p>Verwende die SELECT-Anweisung mit einem Sternchen (*) für alle Spalten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <h2>Teste dein Wissen</h2>
+        <div class="quiz-container">
+            <div id="quiz-question" class="quiz-question">
+                <h3>Was ist SQL?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="checkAnswer(1)">A) Eine Programmiersprache</button>
+                    <button class="quiz-option" onclick="checkAnswer(2)">B) Eine Datenbankabfragesprache</button>
+                    <button class="quiz-option" onclick="checkAnswer(3)">C) Ein Betriebssystem</button>
+                    <button class="quiz-option" onclick="checkAnswer(4)">D) Ein Netzwerkprotokoll</button>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback"></div>
+            </div>
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+                <p>Frage <span id="current-question">1</span> von <span id="total-questions">5</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="sql.js"></script>
+</body>
+
+</html>

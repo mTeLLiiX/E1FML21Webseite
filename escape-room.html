@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - IT Learning Platform</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="escape-room.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span>IT Learning Platform</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" data-translate="start">Start</a>
+            <a href="dashboard.html" data-translate="dashboard">Dashboard</a>
+            <a href="admin.html" data-translate="admin">Admin</a>
+            <a href="login.html" data-translate="login">Login</a>
+            <a href="register.html" data-translate="register">Registrieren</a>
+        </div>
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="language-btn" data-lang="de" onclick="changeLanguage('de')">
+                <svg width="24" height="16" viewBox="0 0 24 16">
+                    <rect width="8" height="16" fill="#000"/>
+                    <rect x="8" width="8" height="16" fill="#DD0000"/>
+                    <rect x="16" width="8" height="16" fill="#FFCE00"/>
+                </svg>
+                <span>DE</span>
+            </button>
+            <button class="language-btn" data-lang="en" onclick="changeLanguage('en')">
+                <svg width="24" height="16" viewBox="0 0 24 16">
+                    <rect width="24" height="16" fill="#012169"/>
+                    <path d="M0,0 L24,16 M24,0 L0,16" stroke="#fff" stroke-width="2.4"/>
+                    <path d="M12,0 L12,16 M0,8 L24,8" stroke="#fff" stroke-width="4"/>
+                    <path d="M12,0 L12,16 M0,8 L24,8" stroke="#C8102E" stroke-width="2.4"/>
+                </svg>
+                <span>EN</span>
+            </button>
+            <button class="language-btn" data-lang="ru" onclick="changeLanguage('ru')">
+                <svg width="24" height="16" viewBox="0 0 24 16">
+                    <rect width="8" height="16" fill="#fff"/>
+                    <rect x="8" width="8" height="16" fill="#0039A6"/>
+                    <rect x="16" width="8" height="16" fill="#D52B1E"/>
+                </svg>
+                <span>RU</span>
+            </button>
+            <button class="language-btn" data-lang="so" onclick="changeLanguage('so')">
+                <svg width="24" height="16" viewBox="0 0 24 16">
+                    <rect width="24" height="16" fill="#4189DD"/>
+                    <circle cx="12" cy="8" r="4" fill="#fff"/>
+                    <path d="M12,4 L12,12 M8,8 L16,8" stroke="#fff" stroke-width="1"/>
+                </svg>
+                <span>SO</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- 3D Scene -->
+        <div id="scene-container"></div>
+
+        <!-- Game Interface -->
+        <div class="game-interface">
+            <!-- Game Header -->
+            <div class="game-header">
+                <div class="level-info">
+                    <span id="current-level">Level 1</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="level-progress"></div>
+                    </div>
+                </div>
+                <div class="game-controls-top">
+                    <div class="timer">30:00</div>
+                    <div class="sound-controls">
+                        <button class="sound-btn" id="toggle-music">
+                            <i class="fas fa-music"></i>
+                        </button>
+                        <button class="sound-btn" id="toggle-sfx">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar and Dialog -->
+            <div class="avatar-container">
+                <div class="avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="dialog-box">
+                    <p id="avatar-message">Willkommen im Escape Room! Löse die Rätsel, um dich zu befreien.</p>
+                </div>
+            </div>
+
+            <!-- Code Editor -->
+            <div class="code-editor">
+                <div class="editor-header">
+                    <span class="language-tag">JavaScript</span>
+                    <div class="editor-controls">
+                        <button title="Code ausführen"><i class="fas fa-play"></i></button>
+                        <button title="Code zurücksetzen"><i class="fas fa-undo"></i></button>
+                        <button title="Hilfe"><i class="fas fa-question-circle"></i></button>
+                    </div>
+                </div>
+                <div class="editor-content">
+                    <textarea id="code-input" spellcheck="false"></textarea>
+                </div>
+                <div class="editor-footer">
+                    <span class="line-count">Zeile: 1</span>
+                    <span class="character-count">Zeichen: 0</span>
+                </div>
+            </div>
+
+            <!-- Output Area -->
+            <div class="output-area">
+                <div class="output-header">
+                    <span>Ausgabe</span>
+                </div>
+                <div class="output-content" id="output-content"></div>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="hint-btn">
+                    <i class="fas fa-lightbulb"></i> Tipp
+                </button>
+                <button id="submit-btn">
+                    <i class="fas fa-check"></i> Überprüfen
+                </button>
+                <button id="next-level-btn" disabled>
+                    <i class="fas fa-arrow-right"></i> Nächstes Level
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Panel -->
+    <div class="inventory-panel">
+        <h3>Inventar</h3>
+        <div class="inventory-items" id="inventory-items">
+            <!-- Inventory items will be added here dynamically -->
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div class="game-over-screen" style="display: none;">
+        <div class="game-over-content">
+            <h2>Spiel beendet!</h2>
+            <p>Du hast alle Level erfolgreich abgeschlossen!</p>
+            <button onclick="restartGame()">
+                <i class="fas fa-redo"></i> Neu starten
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="escape-room.js"></script>
+</body>
+
+</html>

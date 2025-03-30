@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-Lernanleitung - IT Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="html-guide.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="lang-btn" onclick="changeLanguage('de')">
+                <img src="images/flags/de.png" alt="Deutsch">
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('en')">
+                <img src="images/flags/en.png" alt="English">
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('ru')">
+                <img src="images/flags/ru.png" alt="Русский">
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('so')">
+                <img src="images/flags/so.png" alt="Soomaali">
+            </button>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <h1 data-lang="de">HTML-Lernanleitung für Anfänger</h1>
+            <h1 data-lang="en" style="display: none;">HTML Learning Guide for Beginners</h1>
+            <h1 data-lang="ru" style="display: none;">Руководство по HTML для начинающих</h1>
+            <h1 data-lang="so" style="display: none;">Hagita HTML-ka ee bilowga ah</h1>
+            
+            <p data-lang="de">Lerne HTML von Grund auf und erstelle deine eigene Webseite!</p>
+            <p data-lang="en" style="display: none;">Learn HTML from scratch and create your own website!</p>
+            <p data-lang="ru" style="display: none;">Изучите HTML с нуля и создайте свой собственный веб-сайт!</p>
+            <p data-lang="so" style="display: none;">Baro HTML-ka bilowga ah oo samee website-kaaga!</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="guide-nav">
+            <ul>
+                <li><a href="#grundlagen" data-lang="de">Grundlagen von HTML</a></li>
+                <li><a href="#grundlagen" data-lang="en" style="display: none;">HTML Basics</a></li>
+                <li><a href="#grundlagen" data-lang="ru" style="display: none;">Основы HTML</a></li>
+                <li><a href="#grundlagen" data-lang="so" style="display: none;">Aasaaska HTML-ka</a></li>
+
+                <li><a href="#erste-seite" data-lang="de">Erste Webseite erstellen</a></li>
+                <li><a href="#erste-seite" data-lang="en" style="display: none;">Create Your First Website</a></li>
+                <li><a href="#erste-seite" data-lang="ru" style="display: none;">Создание первой веб-страницы</a></li>
+                <li><a href="#erste-seite" data-lang="so" style="display: none;">Samee Website-kaaga koowaad</a></li>
+
+                <li><a href="#css" data-lang="de">CSS für das Design</a></li>
+                <li><a href="#css" data-lang="en" style="display: none;">CSS for Design</a></li>
+                <li><a href="#css" data-lang="ru" style="display: none;">CSS для дизайна</a></li>
+                <li><a href="#css" data-lang="so" style="display: none;">CSS-ka Design-ka</a></li>
+
+                <li><a href="#mehrere-seiten" data-lang="de">Mehrere Seiten erstellen</a></li>
+                <li><a href="#mehrere-seiten" data-lang="en" style="display: none;">Create Multiple Pages</a></li>
+                <li><a href="#mehrere-seiten" data-lang="ru" style="display: none;">Создание нескольких страниц</a></li>
+                <li><a href="#mehrere-seiten" data-lang="so" style="display: none;">Samee bogag badan</a></li>
+
+                <li><a href="#hochladen" data-lang="de">Webseite hochladen</a></li>
+                <li><a href="#hochladen" data-lang="en" style="display: none;">Upload Your Website</a></li>
+                <li><a href="#hochladen" data-lang="ru" style="display: none;">Загрузка веб-сайта</a></li>
+                <li><a href="#hochladen" data-lang="so" style="display: none;">Soo geli website-kaaga</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Section 1: Grundlagen -->
+            <section id="grundlagen" class="guide-section">
+                <h2 data-lang="de">1️⃣ Grundlagen von HTML</h2>
+                <h2 data-lang="en" style="display: none;">1️⃣ HTML Basics</h2>
+                <h2 data-lang="ru" style="display: none;">1️⃣ Основы HTML</h2>
+                <h2 data-lang="so" style="display: none;">1️⃣ Aasaaska HTML-ka</h2>
+
+                <div class="content-block">
+                    <h3 data-lang="de">Was ist HTML?</h3>
+                    <h3 data-lang="en" style="display: none;">What is HTML?</h3>
+                    <h3 data-lang="ru" style="display: none;">Что такое HTML?</h3>
+                    <h3 data-lang="so" style="display: none;">Waa maxay HTML?</h3>
+
+                    <p data-lang="de">HTML (HyperText Markup Language) ist die Standardsprache für die Erstellung von Webseiten. Sie definiert die Struktur und den Inhalt einer Webseite.</p>
+                    <p data-lang="en" style="display: none;">HTML (HyperText Markup Language) is the standard language for creating web pages. It defines the structure and content of a webpage.</p>
+                    <p data-lang="ru" style="display: none;">HTML (язык гипертекстовой разметки) - это стандартный язык для создания веб-страниц. Он определяет структуру и содержимое веб-страницы.</p>
+                    <p data-lang="so" style="display: none;">HTML (HyperText Markup Language) waa luqad caadiga ah oo la sameeyo bogag web. Waxay qeexaysaa qaabka iyo qoraalka bogga web.</p>
+
+                    <div class="code-example">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Meine erste Webseite&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Willkommen!&lt;/h1&gt;
+    &lt;p&gt;Dies ist mein erster HTML-Code.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Interactive Quiz -->
+                <div class="quiz-container">
+                    <h3 data-lang="de">HTML-Quiz</h3>
+                    <h3 data-lang="en" style="display: none;">HTML Quiz</h3>
+                    <h3 data-lang="ru" style="display: none;">HTML Викторина</h3>
+                    <h3 data-lang="so" style="display: none;">Su'aalaha HTML-ka</h3>
+
+                    <div class="quiz-question">
+                        <p data-lang="de">Was bedeutet HTML?</p>
+                        <p data-lang="en" style="display: none;">What does HTML stand for?</p>
+                        <p data-lang="ru" style="display: none;">Что означает HTML?</p>
+                        <p data-lang="so" style="display: none;">HTML waxay ka kooban tahay?</p>
+                    </div>
+
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(1)">HyperText Markup Language</button>
+                        <button onclick="checkAnswer(2)">High Text Markup Language</button>
+                        <button onclick="checkAnswer(3)">HyperText Making Language</button>
+                        <button onclick="checkAnswer(4)">High Text Making Language</button>
+                    </div>
+
+                    <div class="quiz-feedback"></div>
+                </div>
+            </section>
+
+            <!-- Section 2: Erste Webseite -->
+            <section id="erste-seite" class="guide-section">
+                <h2 data-lang="de">2️⃣ Erste Webseite erstellen</h2>
+                <h2 data-lang="en" style="display: none;">2️⃣ Create Your First Website</h2>
+                <h2 data-lang="ru" style="display: none;">2️⃣ Создание первой веб-страницы</h2>
+                <h2 data-lang="so" style="display: none;">2️⃣ Samee Website-kaaga koowaad</h2>
+
+                <div class="content-block">
+                    <h3 data-lang="de">HTML-Grundgerüst</h3>
+                    <h3 data-lang="en" style="display: none;">HTML Basic Structure</h3>
+                    <h3 data-lang="ru" style="display: none;">Базовая структура HTML</h3>
+                    <h3 data-lang="so" style="display: none;">Qaabka aasaasiga ah ee HTML-ka</h3>
+
+                    <div class="code-example">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="de"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Meine Webseite&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Überschrift&lt;/h1&gt;
+    &lt;p&gt;Ein Absatz Text&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Interactive Practice -->
+                <div class="practice-container">
+                    <h3 data-lang="de">Übungsaufgabe</h3>
+                    <h3 data-lang="en" style="display: none;">Practice Exercise</h3>
+                    <h3 data-lang="ru" style="display: none;">Практическое задание</h3>
+                    <h3 data-lang="so" style="display: none;">Layli isku day</h3>
+
+                    <div class="practice-editor">
+                        <textarea id="html-editor" placeholder="Schreibe deinen HTML-Code hier..."></textarea>
+                        <div class="preview-window">
+                            <iframe id="preview-frame"></iframe>
+                        </div>
+                    </div>
+
+                    <button onclick="runCode()" class="run-button">
+                        <span data-lang="de">Code ausführen</span>
+                        <span data-lang="en" style="display: none;">Run Code</span>
+                        <span data-lang="ru" style="display: none;">Запустить код</span>
+                        <span data-lang="so" style="display: none;">Fuliyo code-ka</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Section 3: CSS -->
+            <section id="css" class="guide-section">
+                <h2 data-lang="de">3️⃣ CSS für das Design</h2>
+                <h2 data-lang="en" style="display: none;">3️⃣ CSS for Design</h2>
+                <h2 data-lang="ru" style="display: none;">3️⃣ CSS для дизайна</h2>
+                <h2 data-lang="so" style="display: none;">3️⃣ CSS-ka Design-ka</h2>
+
+                <div class="content-block">
+                    <h3 data-lang="de">CSS einbinden</h3>
+                    <h3 data-lang="en" style="display: none;">Include CSS</h3>
+                    <h3 data-lang="ru" style="display: none;">Подключение CSS</h3>
+                    <h3 data-lang="so" style="display: none;">Ku dar CSS-ka</h3>
+
+                    <div class="code-example">
+                        <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- CSS Playground -->
+                <div class="css-playground">
+                    <div class="playground-controls">
+                        <div class="control-group">
+                            <label data-lang="de">Hintergrundfarbe:</label>
+                            <label data-lang="en" style="display: none;">Background Color:</label>
+                            <label data-lang="ru" style="display: none;">Цвет фона:</label>
+                            <label data-lang="so" style="display: none;">Midabka gadaasha:</label>
+                            <input type="color" id="bg-color" value="#ffffff">
+                        </div>
+                        <div class="control-group">
+                            <label data-lang="de">Textfarbe:</label>
+                            <label data-lang="en" style="display: none;">Text Color:</label>
+                            <label data-lang="ru" style="display: none;">Цвет текста:</label>
+                            <label data-lang="so" style="display: none;">Midabka qoraalka:</label>
+                            <input type="color" id="text-color" value="#000000">
+                        </div>
+                    </div>
+                    <div class="playground-preview">
+                        <div id="style-preview">
+                            <p data-lang="de">Beispieltext</p>
+                            <p data-lang="en" style="display: none;">Sample Text</p>
+                            <p data-lang="ru" style="display: none;">Пример текста</p>
+                            <p data-lang="so" style="display: none;">Tusaale qoraal</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Mehrere Seiten -->
+            <section id="mehrere-seiten" class="guide-section">
+                <h2 data-lang="de">4️⃣ Mehrere Seiten erstellen</h2>
+                <h2 data-lang="en" style="display: none;">4️⃣ Create Multiple Pages</h2>
+                <h2 data-lang="ru" style="display: none;">4️⃣ Создание нескольких страниц</h2>
+                <h2 data-lang="so" style="display: none;">4️⃣ Samee bogag badan</h2>
+
+                <div class="content-block">
+                    <h3 data-lang="de">Navigation zwischen Seiten</h3>
+                    <h3 data-lang="en" style="display: none;">Navigation Between Pages</h3>
+                    <h3 data-lang="ru" style="display: none;">Навигация между страницами</h3>
+                    <h3 data-lang="so" style="display: none;">Navigation-ka u dhexeeya bogag</h3>
+
+                    <div class="code-example">
+                        <pre><code>&lt;nav&gt;
+    &lt;a href="index.html"&gt;Startseite&lt;/a&gt;
+    &lt;a href="about.html"&gt;Über uns&lt;/a&gt;
+    &lt;a href="contact.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Hochladen -->
+            <section id="hochladen" class="guide-section">
+                <h2 data-lang="de">5️⃣ Webseite hochladen</h2>
+                <h2 data-lang="en" style="display: none;">5️⃣ Upload Your Website</h2>
+                <h2 data-lang="ru" style="display: none;">5️⃣ Загрузка веб-сайта</h2>
+                <h2 data-lang="so" style="display: none;">5️⃣ Soo geli website-kaaga</h2>
+
+                <div class="content-block">
+                    <h3 data-lang="de">Hosting-Optionen</h3>
+                    <h3 data-lang="en" style="display: none;">Hosting Options</h3>
+                    <h3 data-lang="ru" style="display: none;">Варианты хостинга</h3>
+                    <h3 data-lang="so" style="display: none;">Doorashooyinka hosting-ka</h3>
+
+                    <div class="hosting-options">
+                        <div class="option-card">
+                            <h4>GitHub Pages</h4>
+                            <p data-lang="de">Kostenlos für statische Webseiten</p>
+                            <p data-lang="en" style="display: none;">Free for static websites</p>
+                            <p data-lang="ru" style="display: none;">Бесплатно для статических сайтов</p>
+                            <p data-lang="so" style="display: none;">Bilaash ah website-ka static</p>
+                        </div>
+                        <div class="option-card">
+                            <h4>Netlify</h4>
+                            <p data-lang="de">Einfaches Deployment und SSL</p>
+                            <p data-lang="en" style="display: none;">Easy deployment and SSL</p>
+                            <p data-lang="ru" style="display: none;">Простое развертывание и SSL</p>
+                            <p data-lang="so" style="display: none;">Deployment fudud iyo SSL</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p data-lang="de">Viel Erfolg beim Lernen!</p>
+            <p data-lang="en" style="display: none;">Good luck with learning!</p>
+            <p data-lang="ru" style="display: none;">Удачи в обучении!</p>
+            <p data-lang="so" style="display: none;">Hambalyo barashada!</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="html-guide.js"></script>
+</body>
+</html> 

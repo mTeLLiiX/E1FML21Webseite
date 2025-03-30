@@ -1,0 +1,355 @@
+/* Hero Section */
+.hero-section {
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Theory Section */
+.theory-section {
+    padding: 4rem 2rem;
+    background: var(--background-color);
+}
+
+.theory-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.theory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.theory-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+}
+
+.theory-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.theory-content {
+    margin: 1.5rem 0;
+}
+
+.theory-content pre {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.theory-content code {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent-color);
+}
+
+.theory-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theory-btn:hover {
+    background: var(--secondary-color);
+}
+
+/* Calculator Section */
+.calculator-section {
+    padding: 4rem 2rem;
+    background: var(--card-bg);
+}
+
+.calculator-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.calculate-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 2rem;
+}
+
+.calculate-btn:hover {
+    background: var(--secondary-color);
+}
+
+.result-container {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.result-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.calculation-result {
+    display: grid;
+    gap: 1rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: var(--background-color);
+    border-radius: 4px;
+}
+
+.result-item .label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.result-item .value {
+    color: var(--accent-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Practice Section */
+.practice-section {
+    padding: 4rem 2rem;
+    background: var(--background-color);
+}
+
+.practice-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.practice-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.exercise-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.exercise-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hint-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+
+.hint-btn:hover {
+    background: var(--primary-color);
+}
+
+.hint-content {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 8px;
+}
+
+/* Quiz Section */
+.quiz-section {
+    padding: 4rem 2rem;
+    background: var(--card-bg);
+}
+
+.quiz-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.quiz-question h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 1rem;
+}
+
+.quiz-option {
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.quiz-option:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.quiz-feedback {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    display: none;
+}
+
+.quiz-feedback.correct {
+    background: var(--success-color);
+    color: white;
+    display: block;
+}
+
+.quiz-feedback.incorrect {
+    background: var(--error-color);
+    color: white;
+    display: block;
+}
+
+.quiz-progress {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 1rem 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .calculator-container {
+        padding: 1rem;
+    }
+
+    .theory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculation-result {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theory-card,
+.exercise-card,
+.quiz-container {
+    animation: fadeInUp 0.5s ease-out;
+}

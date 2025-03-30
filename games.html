@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lernspiele - IT Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="games.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="games-container">
+        <!-- Header -->
+        <header class="games-header">
+            <h1>Lernspiele</h1>
+            <p>Verbessere deine IT-Kenntnisse durch interaktive Spiele</p>
+        </header>
+
+        <!-- Games Grid -->
+        <div class="games-grid">
+            <!-- SQL Quiz Game -->
+            <div class="game-card">
+                <div class="game-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                </div>
+                <h3>SQL Quiz</h3>
+                <p>Teste dein SQL-Wissen mit interaktiven Quizfragen</p>
+                <div class="difficulty-selector">
+                    <button class="difficulty-btn" data-level="easy">Einfach</button>
+                    <button class="difficulty-btn" data-level="medium">Mittel</button>
+                    <button class="difficulty-btn" data-level="hard">Schwer</button>
+                </div>
+                <button class="play-btn" onclick="startGame('sql-quiz')">Spielen</button>
+            </div>
+
+            <!-- Binary Memory Game -->
+            <div class="game-card">
+                <div class="game-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M2 12h20"></path>
+                    </svg>
+                </div>
+                <h3>Binär Memory</h3>
+                <p>Lerne Binärzahlen durch ein Memory-Spiel</p>
+                <div class="difficulty-selector">
+                    <button class="difficulty-btn" data-level="easy">Einfach</button>
+                    <button class="difficulty-btn" data-level="medium">Mittel</button>
+                    <button class="difficulty-btn" data-level="hard">Schwer</button>
+                </div>
+                <button class="play-btn" onclick="startGame('binary-memory')">Spielen</button>
+            </div>
+
+            <!-- Subnetting Challenge -->
+            <div class="game-card">
+                <div class="game-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </div>
+                <h3>Subnetting Challenge</h3>
+                <p>Übe Subnetting mit interaktiven Aufgaben</p>
+                <div class="difficulty-selector">
+                    <button class="difficulty-btn" data-level="easy">Einfach</button>
+                    <button class="difficulty-btn" data-level="medium">Mittel</button>
+                    <button class="difficulty-btn" data-level="hard">Schwer</button>
+                </div>
+                <button class="play-btn" onclick="startGame('subnetting-challenge')">Spielen</button>
+            </div>
+
+            <!-- Network Topology Builder -->
+            <div class="game-card">
+                <div class="game-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h3>Netzwerk Topologie</h3>
+                <p>Baue Netzwerktopologien und lerne dabei</p>
+                <div class="difficulty-selector">
+                    <button class="difficulty-btn" data-level="easy">Einfach</button>
+                    <button class="difficulty-btn" data-level="medium">Mittel</button>
+                    <button class="difficulty-btn" data-level="hard">Schwer</button>
+                </div>
+                <button class="play-btn" onclick="startGame('network-topology')">Spielen</button>
+            </div>
+        </div>
+
+        <!-- Game Modal -->
+        <div id="gameModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="gameContainer">
+                    <!-- Game content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Dashboard Button -->
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"></path>
+            </svg>
+            Zurück zum Dashboard
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="games.js"></script>
+</body>
+</html> 

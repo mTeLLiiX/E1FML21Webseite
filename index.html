@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Learning Platform</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Hintergrund-Animation -->
+    <div id="particles-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-container">
+                <i class="fas fa-code"></i>
+                <span class="logo-text">IT Learning</span>
+            </div>
+        </a>
+        <div class="language-selector">
+            <button class="language-btn active" data-lang="de">
+                <span class="flag">🇩🇪</span>
+                <span>DE</span>
+            </button>
+            <button class="language-btn" data-lang="en">
+                <span class="flag">🇬🇧</span>
+                <span>EN</span>
+            </button>
+            <button class="language-btn" data-lang="ru">
+                <span class="flag">🇷🇺</span>
+                <span>RU</span>
+            </button>
+            <button class="language-btn" data-lang="so">
+                <span class="flag">🇸🇴</span>
+                <span>SO</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hauptcontainer -->
+    <div class="main-container">
+        <!-- Login Formular -->
+        <div class="form-container" id="login-form">
+            <div class="form-header">
+                <div class="header-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h1>Willkommen zurück!</h1>
+                <p>Melde dich an, um fortzufahren</p>
+            </div>
+            <form id="login">
+                <div class="form-group">
+                    <label for="login-username">
+                        <i class="fas fa-user"></i>
+                        Benutzername
+                    </label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">
+                        <i class="fas fa-lock"></i>
+                        Passwort
+                    </label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Anmelden
+                </button>
+                <div class="form-switch">
+                    <button type="button" class="switch-btn" data-form="register">
+                        <i class="fas fa-user-plus"></i>
+                        Noch kein Konto? Registriere dich
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Registrierungsformular -->
+        <div class="form-container" id="register-form" style="display: none;">
+            <div class="form-header">
+                <div class="header-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h1>Registrierung</h1>
+                <p>Erstelle dein neues Konto</p>
+    </div>
+            <form id="register">
+                <div class="form-group">
+                    <label for="register-name">
+                        <i class="fas fa-user"></i>
+                        Name
+                    </label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-username">
+                        <i class="fas fa-user"></i>
+                        Benutzername
+                    </label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">
+                        <i class="fas fa-lock"></i>
+                        Passwort
+                    </label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password-confirm">
+                        <i class="fas fa-lock"></i>
+                        Passwort bestätigen
+                    </label>
+                    <input type="password" id="register-password-confirm" required>
+                </div>
+                <button type="submit" class="btn">
+                    <i class="fas fa-user-plus"></i>
+                    Registrieren
+                </button>
+                <div class="form-switch">
+                    <button type="button" class="switch-btn" data-form="login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Bereits registriert? Melde dich an
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tech-Elemente -->
+    <div class="tech-elements">
+        <div class="tech-element" data-speed="0.5">
+            <i class="fas fa-microchip"></i>
+        </div>
+        <div class="tech-element" data-speed="0.3">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="tech-element" data-speed="0.7">
+            <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="tech-element" data-speed="0.4">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+    </div>
+
+    <!-- Übersetzungen -->
+    <script>
+        const translations = {
+            de: {
+                welcome: "Willkommen zurück!",
+                loginText: "Melde dich an, um fortzufahren",
+                username: "Benutzername",
+                password: "Passwort",
+                login: "Anmelden",
+                noAccount: "Noch kein Konto? Registriere dich",
+                register: "Registrierung",
+                registerText: "Erstelle dein neues Konto",
+                name: "Name",
+                confirmPassword: "Passwort bestätigen",
+                registerBtn: "Registrieren",
+                hasAccount: "Bereits registriert? Melde dich an"
+            },
+            en: {
+                welcome: "Welcome back!",
+                loginText: "Sign in to continue",
+                username: "Username",
+                password: "Password",
+                login: "Sign In",
+                noAccount: "No account? Register now",
+                register: "Registration",
+                registerText: "Create your new account",
+                name: "Name",
+                confirmPassword: "Confirm Password",
+                registerBtn: "Register",
+                hasAccount: "Already registered? Sign in"
+            },
+            ru: {
+                welcome: "С возвращением!",
+                loginText: "Войдите, чтобы продолжить",
+                username: "Имя пользователя",
+                password: "Пароль",
+                login: "Войти",
+                noAccount: "Нет аккаунта? Зарегистрируйтесь",
+                register: "Регистрация",
+                registerText: "Создайте новый аккаунт",
+                name: "Имя",
+                confirmPassword: "Подтвердите пароль",
+                registerBtn: "Зарегистрироваться",
+                hasAccount: "Уже зарегистрированы? Войдите"
+            },
+            so: {
+                welcome: "Ku soo dhawoow!",
+                loginText: "Si aad u sii wadato",
+                username: "Magaca isticmaalaha",
+                password: "Password",
+                login: "Geli",
+                noAccount: "Ma haysato account? Is diiwaan geli",
+                register: "Is diiwaan gelinta",
+                registerText: "Samee account cusub",
+                name: "Magaca",
+                confirmPassword: "Hubi passwordka",
+                registerBtn: "Is diiwaan geli",
+                hasAccount: "Horey u diiwaan gashan? Geli"
+            }
+        };
+
+        // Sprachumschaltung
+        document.querySelectorAll('.language-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                document.querySelectorAll('.language-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                updateLanguage(lang);
+            });
+        });
+
+        // Sprache aktualisieren
+        function updateLanguage(lang) {
+            const t = translations[lang];
+            document.querySelector('#login-form .form-header h1').textContent = t.welcome;
+            document.querySelector('#login-form .form-header p').textContent = t.loginText;
+            document.querySelector('#login-form label[for="login-username"]').textContent = t.username;
+            document.querySelector('#login-form label[for="login-password"]').textContent = t.password;
+            document.querySelector('#login-form .btn').textContent = t.login;
+            document.querySelector('#login-form .switch-btn').textContent = t.noAccount;
+            
+            document.querySelector('#register-form .form-header h1').textContent = t.register;
+            document.querySelector('#register-form .form-header p').textContent = t.registerText;
+            document.querySelector('#register-form label[for="register-name"]').textContent = t.name;
+            document.querySelector('#register-form label[for="register-username"]').textContent = t.username;
+            document.querySelector('#register-form label[for="register-password"]').textContent = t.password;
+            document.querySelector('#register-form label[for="register-password-confirm"]').textContent = t.confirmPassword;
+            document.querySelector('#register-form .btn').textContent = t.registerBtn;
+            document.querySelector('#register-form .switch-btn').textContent = t.hasAccount;
+        }
+
+        // Formularumschaltung
+        document.querySelectorAll('.switch-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetForm = btn.dataset.form;
+                document.querySelectorAll('.form-container').forEach(form => {
+                    form.style.display = 'none';
+                });
+                document.getElementById(`${targetForm}-form`).style.display = 'block';
+            });
+        });
+
+        // Login-Funktionalität
+        document.getElementById('login').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (username && password) {
+                // Speichere Benutzerdaten im localStorage
+                localStorage.setItem('user', JSON.stringify({
+                    username: username,
+                    lastLogin: new Date().toISOString()
+                }));
+                
+                // Zeige Erfolgsmeldung
+                showMessage('Erfolgreich eingeloggt!', 'success');
+                
+                // Weiterleitung zum Dashboard
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1000);
+            } else {
+                showMessage('Bitte alle Felder ausfüllen!', 'error');
+            }
+        });
+
+        // Registrierungsfunktionalität
+        document.getElementById('register').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-password-confirm').value;
+
+            if (password !== confirmPassword) {
+                showMessage('Die Passwörter stimmen nicht überein!', 'error');
+                return;
+            }
+
+            if (name && username && password) {
+                // Speichere Benutzerdaten im localStorage
+                localStorage.setItem('user', JSON.stringify({
+                    name: name,
+                    username: username,
+                    lastLogin: new Date().toISOString()
+                }));
+                
+                // Zeige Erfolgsmeldung
+                showMessage('Registrierung erfolgreich!', 'success');
+                
+                // Weiterleitung zum Dashboard
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1000);
+            } else {
+                showMessage('Bitte alle Felder ausfüllen!', 'error');
+            }
+        });
+
+        // Hilfsfunktion für Nachrichten
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = message;
+            
+            document.body.appendChild(messageDiv);
+            
+            // Entferne die Nachricht nach 3 Sekunden
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+
+        // Überprüfe Login-Status beim Laden der Seite
+        window.addEventListener('load', () => {
+            const user = localStorage.getItem('user');
+            if (user) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+
+    <!-- Animationen und Effekte -->
+    <script>
+        // Three.js Hintergrund
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('particles-container').appendChild(renderer.domElement);
+
+        // Partikel erstellen
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 1000;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 5;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: '#00ff9d',
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+        camera.position.z = 2;
+
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            particlesMesh.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Responsive Anpassung
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // GSAP Animationen
+        gsap.from('.form-container', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.tech-elements .tech-element', {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: 'power3.out'
+        });
+
+        // Parallax Effekt für Tech-Elemente
+        document.addEventListener('mousemove', (e) => {
+            const techElements = document.querySelectorAll('.tech-element');
+            techElements.forEach(element => {
+                const speed = element.getAttribute('data-speed');
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+
+        // Formularumschaltung mit Animation
+        document.querySelectorAll('.switch-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetForm = btn.dataset.form;
+                const currentForm = document.querySelector('.form-container:not([style*="display: none"])');
+                const nextForm = document.getElementById(`${targetForm}-form`);
+
+                gsap.to(currentForm, {
+                    duration: 0.3,
+                    opacity: 0,
+                    y: -20,
+                    onComplete: () => {
+                        currentForm.style.display = 'none';
+                        nextForm.style.display = 'block';
+                        gsap.fromTo(nextForm,
+                            { opacity: 0, y: 20 },
+                            { duration: 0.3, opacity: 1, y: 0 }
+                        );
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

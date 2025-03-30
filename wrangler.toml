@@ -1,0 +1,8 @@
+name = "it-learning-platform"
+type = "javascript"
+account_id = "" # Hier Ihre Cloudflare Account ID einfügen
+workers_dev = true
+
+kv_namespaces = [
+  { binding = "USERS", id = "" } # Hier die KV Namespace ID einfügen
+] 

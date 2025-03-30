@@ -1,0 +1,410 @@
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.lang-btn:hover {
+    transform: scale(1.1);
+}
+
+.lang-btn img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Navigation */
+.guide-nav {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+.guide-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.guide-nav a {
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.guide-nav a:hover {
+    background-color: #e9ecef;
+}
+
+/* Guide Sections */
+.guide-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.guide-section h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.content-block {
+    margin-bottom: 2rem;
+}
+
+.content-block h3 {
+    color: #34495e;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Code Examples */
+.code-example {
+    background: #2c3e50;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.code-example code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+/* Quiz Container */
+.quiz-container {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-options button {
+    padding: 1rem;
+    border: 2px solid #3498db;
+    background: white;
+    color: #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-options button:hover {
+    background: #3498db;
+    color: white;
+}
+
+.quiz-feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.quiz-feedback.correct {
+    background: #d4edda;
+    color: #155724;
+}
+
+.quiz-feedback.incorrect {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Practice Container */
+.practice-container {
+    margin-top: 2rem;
+}
+
+.practice-editor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#html-editor {
+    width: 100%;
+    height: 300px;
+    padding: 1rem;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    resize: vertical;
+}
+
+.preview-window {
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#preview-frame {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+.run-button {
+    padding: 1rem 2rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.run-button:hover {
+    background: #2980b9;
+}
+
+/* CSS Playground */
+.css-playground {
+    margin-top: 2rem;
+}
+
+.playground-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-group label {
+    color: #2c3e50;
+}
+
+.control-group input[type="color"] {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.playground-preview {
+    padding: 2rem;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    min-height: 200px;
+}
+
+#style-preview {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Hosting Options */
+.hosting-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.option-card {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.option-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.option-card p {
+    color: #7f8c8d;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+footer p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+
+    .guide-section {
+        background: #2d2d2d;
+    }
+
+    header h1 {
+        color: #ffffff;
+    }
+
+    header p {
+        color: #b3b3b3;
+    }
+
+    .guide-nav {
+        background: #2d2d2d;
+    }
+
+    .guide-nav a {
+        color: #ffffff;
+    }
+
+    .guide-nav a:hover {
+        background-color: #3d3d3d;
+    }
+
+    .content-block h3 {
+        color: #ffffff;
+    }
+
+    .quiz-container {
+        background: #2d2d2d;
+    }
+
+    .quiz-question {
+        color: #ffffff;
+    }
+
+    .quiz-options button {
+        background: #2d2d2d;
+        color: #ffffff;
+        border-color: #3498db;
+    }
+
+    .quiz-options button:hover {
+        background: #3498db;
+        color: #ffffff;
+    }
+
+    #html-editor {
+        background: #2d2d2d;
+        color: #ffffff;
+    }
+
+    .playground-preview {
+        background: #2d2d2d;
+    }
+
+    .option-card {
+        background: #2d2d2d;
+    }
+
+    .option-card h4 {
+        color: #ffffff;
+    }
+
+    .option-card p {
+        color: #b3b3b3;
+    }
+
+    footer {
+        background: #2d2d2d;
+    }
+
+    footer p {
+        color: #b3b3b3;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .guide-nav ul {
+        flex-direction: column;
+    }
+
+    .practice-editor {
+        grid-template-columns: 1fr;
+    }
+
+    .hosting-options {
+        grid-template-columns: 1fr;
+    }
+} 

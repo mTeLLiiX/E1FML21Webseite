@@ -1,0 +1,15 @@
+{
+  "name": "it-learning-platform",
+  "version": "1.0.0",
+  "description": "IT Learning Platform mit Login und Registrierung",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "cors": "^2.8.5"
+  }
+} 

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - IT Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">IT Learning Platform</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="flashcards.html">Karteikarten</a>
+            <a href="games.html">Spiele</a>
+            <a href="tools.html">Tools</a>
+            <a href="profile.html" class="active">Profil</a>
+            <button id="darkModeToggle" class="theme-toggle">🌙</button>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button onclick="changeLanguage('de')" class="lang-btn">🇩🇪</button>
+        <button onclick="changeLanguage('en')" class="lang-btn">🇬🇧</button>
+        <button onclick="changeLanguage('ru')" class="lang-btn">🇷🇺</button>
+        <button onclick="changeLanguage('so')" class="lang-btn">🇸🇴</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mein Profil</h1>
+            <p>Verwalte deine Einstellungen und verfolge deinen Fortschritt</p>
+        </div>
+    </section>
+
+    <!-- Profile Settings -->
+    <section id="profile-settings" class="profile-section">
+        <h2>Profil Einstellungen</h2>
+        <div class="settings-container">
+            <div class="profile-info">
+                <div class="avatar-container">
+                    <img id="user-avatar" src="default-avatar.png" alt="Profilbild">
+                    <button onclick="changeAvatar()" class="btn">Bild ändern</button>
+                </div>
+                <div class="info-form">
+                    <div class="input-group">
+                        <label for="username">Benutzername:</label>
+                        <input type="text" id="username" placeholder="Benutzername">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-Mail:</label>
+                        <input type="email" id="email" placeholder="E-Mail">
+                    </div>
+                    <div class="input-group">
+                        <label for="language">Sprache:</label>
+                        <select id="language">
+                            <option value="de">Deutsch</option>
+                            <option value="en">English</option>
+                            <option value="ru">Русский</option>
+                            <option value="so">Soomaali</option>
+                        </select>
+                    </div>
+                    <button onclick="saveProfile()" class="btn">Speichern</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Progress -->
+    <section id="learning-progress" class="profile-section">
+        <h2>Lernfortschritt</h2>
+        <div class="progress-container">
+            <div class="progress-overview">
+                <div class="progress-card">
+                    <h3>SQL</h3>
+                    <div class="progress-bar">
+                        <div id="sql-progress" class="progress-fill"></div>
+                    </div>
+                    <span id="sql-percentage">0%</span>
+                </div>
+                <div class="progress-card">
+                    <h3>Subnetting</h3>
+                    <div class="progress-bar">
+                        <div id="subnetting-progress" class="progress-fill"></div>
+                    </div>
+                    <span id="subnetting-percentage">0%</span>
+                </div>
+                <div class="progress-card">
+                    <h3>Binärzahlen</h3>
+                    <div class="progress-bar">
+                        <div id="binary-progress" class="progress-fill"></div>
+                    </div>
+                    <span id="binary-percentage">0%</span>
+                </div>
+            </div>
+            <div class="progress-details">
+                <h3>Lernhistorie</h3>
+                <div id="learning-history" class="history-list">
+                    <!-- Learning history items will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="profile-section">
+        <h2>Erfolge</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <img src="achievement-1.png" alt="Erste Schritte">
+                <h3>Erste Schritte</h3>
+                <p>Erste Lektion abgeschlossen</p>
+            </div>
+            <div class="achievement-card">
+                <img src="achievement-2.png" alt="Quiz Master">
+                <h3>Quiz Master</h3>
+                <p>10 Quizze mit 100% abgeschlossen</p>
+            </div>
+            <div class="achievement-card">
+                <img src="achievement-3.png" alt="Memory Champion">
+                <h3>Memory Champion</h3>
+                <p>Memory-Spiel in unter 60 Sekunden</p>
+            </div>
+            <div class="achievement-card">
+                <img src="achievement-4.png" alt="Streak Master">
+                <h3>Streak Master</h3>
+                <p>7 Tage in Folge gelernt</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section id="statistics" class="profile-section">
+        <h2>Statistiken</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Lernzeit</h3>
+                <p>Gesamt: <span id="total-learning-time">0</span> Stunden</p>
+                <p>Heute: <span id="today-learning-time">0</span> Minuten</p>
+            </div>
+            <div class="stat-card">
+                <h3>Karteikarten</h3>
+                <p>Gelernt: <span id="cards-learned">0</span></p>
+                <p>Erfolgsrate: <span id="cards-success">0%</span></p>
+            </div>
+            <div class="stat-card">
+                <h3>Spiele</h3>
+                <p>Gespielt: <span id="games-played">0</span></p>
+                <p>Bestleistung: <span id="games-best">-</span></p>
+            </div>
+            <div class="stat-card">
+                <h3>Tools</h3>
+                <p>Berechnungen: <span id="calculations-done">0</span></p>
+                <p>Genauigkeit: <span id="calculations-accuracy">0%</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1FL2 - Subnetting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subnetting.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">E1FL2</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#theory">Theorie</a>
+            <a href="#calculator">Rechner</a>
+            <a href="#practice">Übungen</a>
+            <a href="#quiz">Quiz</a>
+            <button id="darkModeToggle" class="theme-toggle">🌙</button>
+            <button onclick="logout()" class="logout-button" data-translate="dashboard.logout">Abmelden</button>
+        </div>
+    </nav>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" onclick="changeLanguage('de')">🇩🇪</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">🇬🇧</button>
+        <button class="lang-btn" onclick="changeLanguage('ru')">🇷🇺</button>
+        <button class="lang-btn" onclick="changeLanguage('so')">🇸🇴</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 data-translate="topics.subnetting">Subnetting</h1>
+            <p>Lerne die Grundlagen der Netzwerksegmentierung</p>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="subnetting-progress"></div>
+                </div>
+                <p>Dein Fortschritt: <span id="progress-text">0%</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theory Section -->
+    <section id="theory" class="theory-section">
+        <h2>Theoretische Grundlagen</h2>
+        <div class="theory-grid">
+            <div class="theory-card">
+                <h3>1. Grundlagen des Subnettings</h3>
+                <p>IP-Adressen und Subnetzmasken</p>
+                <div class="theory-content">
+                    <pre><code>192.168.1.0/24
+Subnetzmaske: 255.255.255.0</code></pre>
+                    <p>Subnetting ist die Aufteilung eines Netzwerks in kleinere Teilnetze.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(1)">Mehr erfahren</button>
+            </div>
+            <div class="theory-card">
+                <h3>2. CIDR-Notation</h3>
+                <p>Classless Inter-Domain Routing</p>
+                <div class="theory-content">
+                    <pre><code>/24 = 255.255.255.0
+/16 = 255.255.0.0
+/8 = 255.0.0.0</code></pre>
+                    <p>Die CIDR-Notation ist eine kompakte Darstellung der Subnetzmaske.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(2)">Mehr erfahren</button>
+            </div>
+            <div class="theory-card">
+                <h3>3. Netzwerkberechnung</h3>
+                <p>Netzwerk-ID, Broadcast und Hosts</p>
+                <div class="theory-content">
+                    <pre><code>Netzwerk-ID: 192.168.1.0
+Broadcast: 192.168.1.255
+Hosts: 192.168.1.1 - 192.168.1.254</code></pre>
+                    <p>Lerne, wie du Netzwerkbereiche berechnest.</p>
+                </div>
+                <button class="theory-btn" onclick="showTheory(3)">Mehr erfahren</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <h2>Subnetting Rechner</h2>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label for="ip-address">IP-Adresse:</label>
+                <input type="text" id="ip-address" placeholder="z.B. 192.168.1.0">
+            </div>
+            <div class="input-group">
+                <label for="subnet-mask">Subnetzmaske:</label>
+                <input type="text" id="subnet-mask" placeholder="z.B. 255.255.255.0">
+            </div>
+            <div class="input-group">
+                <label for="hosts-needed">Benötigte Hosts:</label>
+                <input type="number" id="hosts-needed" placeholder="z.B. 50">
+            </div>
+            <button onclick="calculateSubnet()" class="calculate-btn">Berechnen</button>
+            <div class="result-container">
+                <h3>Ergebnis</h3>
+                <div id="calculation-result" class="calculation-result">
+                    <div class="result-item">
+                        <span class="label">Netzwerk-ID:</span>
+                        <span id="network-id" class="value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Broadcast:</span>
+                        <span id="broadcast" class="value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Erste Host:</span>
+                        <span id="first-host" class="value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Letzte Host:</span>
+                        <span id="last-host" class="value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Anzahl Hosts:</span>
+                        <span id="total-hosts" class="value">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="practice-section">
+        <h2>Praktische Übungen</h2>
+        <div class="practice-container">
+            <div class="exercise-card">
+                <h3>Übung 1: Netzwerkberechnung</h3>
+                <p>Berechne die Netzwerk-ID, Broadcast-Adresse und den verfügbaren Host-Bereich für das Netzwerk 192.168.1.0/24.</p>
+                <button onclick="showHint(1)" class="hint-btn">Tipp anzeigen</button>
+                <div id="hint-1" class="hint-content" style="display: none;">
+                    <p>1. Netzwerk-ID ist die erste Adresse im Netzwerk</p>
+                    <p>2. Broadcast ist die letzte Adresse</p>
+                    <p>3. Host-Bereich liegt dazwischen</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <h3>Übung 2: Subnetzmaske</h3>
+                <p>Welche Subnetzmaske benötigst du für mindestens 100 Hosts?</p>
+                <button onclick="showHint(2)" class="hint-btn">Tipp anzeigen</button>
+                <div id="hint-2" class="hint-content" style="display: none;">
+                    <p>1. Berechne die benötigten Bits für die Hosts</p>
+                    <p>2. 2^n - 2 ≥ 100</p>
+                    <p>3. n = 7 (128 - 2 = 126 Hosts)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <h2>Teste dein Wissen</h2>
+        <div class="quiz-container">
+            <div id="quiz-question" class="quiz-question">
+                <h3>Was ist die Netzwerk-ID für 192.168.1.0/24?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="checkAnswer(1)">A) 192.168.1.1</button>
+                    <button class="quiz-option" onclick="checkAnswer(2)">B) 192.168.1.0</button>
+                    <button class="quiz-option" onclick="checkAnswer(3)">C) 192.168.1.255</button>
+                    <button class="quiz-option" onclick="checkAnswer(4)">D) 192.168.0.0</button>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback"></div>
+            </div>
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+                <p>Frage <span id="current-question">1</span> von <span id="total-questions">5</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="subnetting.js"></script>
+</body>
+</html> 

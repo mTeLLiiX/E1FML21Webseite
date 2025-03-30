@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karteikarten-Lernspiel - E1FML2</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="flashcards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">E1FML2</a>
+            <div class="nav-links">
+                <a href="index.html" data-translate="start">Start</a>
+                <a href="tools.html" data-translate="tools">Tools</a>
+                <a href="dashboard.html" data-translate="dashboard">Dashboard</a>
+                <a href="#contact" data-translate="contact">Kontakt</a>
+                <button class="login-btn" data-translate="login">Anmelden</button>
+                <button class="register-btn" data-translate="register">Registrieren</button>
+            </div>
+            <div class="language-selector">
+                <button class="language-btn" data-lang="de">DE</button>
+                <button class="language-btn" data-lang="en">EN</button>
+                <button class="language-btn" data-lang="ru">RU</button>
+                <button class="language-btn" data-lang="so">SO</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Karteikarten-Bereich -->
+    <div class="container">
+        <div class="stats-container">
+            <div class="stats-item">
+                <span class="stats-label">Gesamt:</span>
+                <span id="total-cards" class="stats-value">0</span>
+            </div>
+            <div class="stats-item">
+                <span class="stats-label">Verstanden:</span>
+                <span id="correct-cards" class="stats-value">0</span>
+            </div>
+            <div class="stats-item">
+                <span class="stats-label">Nicht verstanden:</span>
+                <span id="incorrect-cards" class="stats-value">0</span>
+            </div>
+        </div>
+
+        <div class="flashcard-container">
+            <div class="flashcard">
+                <div class="card-front">
+                    <h2 id="question"></h2>
+                </div>
+                <div class="card-back">
+                    <h2 id="answer"></h2>
+                </div>
+            </div>
+            
+            <div class="card-controls">
+                <button id="show-answer" class="control-btn">Antwort zeigen</button>
+                <div class="feedback-buttons" style="display: none;">
+                    <button id="not-understood" class="feedback-btn not-understood">Nicht verstanden</button>
+                    <button id="understood" class="feedback-btn understood">Verstanden</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="new-card-form">
+            <h3>Neue Karte erstellen</h3>
+            <div class="form-group">
+                <label for="new-question">Frage:</label>
+                <textarea id="new-question" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="new-answer">Antwort:</label>
+                <textarea id="new-answer" rows="3"></textarea>
+            </div>
+            <button id="save-card" class="control-btn">Karte speichern</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="flashcards.js"></script>
+</body>
+</html> 

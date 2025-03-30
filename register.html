@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierung - IT Learning Platform</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" data-translate="start">Start</a></li>
+            <li><a href="dashboard.html" data-translate="dashboard">Dashboard</a></li>
+            <li><a href="admin.html" data-translate="admin">Admin</a></li>
+            <li><a href="login.html" data-translate="login">Login</a></li>
+            <li><a href="register.html" data-translate="register">Registrieren</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="register-container">
+            <div class="register-card">
+                <h1>Registrierung</h1>
+                <form id="registerForm" class="register-form">
+                    <div class="form-group">
+                        <label for="username">Benutzername</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Passwort</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Passwort bestätigen</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn">Registrieren</button>
+                </form>
+                <p class="login-link">Bereits registriert? <a href="login.html">Hier anmelden</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn" data-lang="de">
+            <span>🇩🇪 DE</span>
+        </button>
+        <button class="language-btn" data-lang="en">
+            <span>🇬🇧 EN</span>
+        </button>
+        <button class="language-btn" data-lang="ru">
+            <span>🇷🇺 RU</span>
+        </button>
+        <button class="language-btn" data-lang="so">
+            <span>🇸🇴 SO</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="language.js"></script>
+    <script src="register.js"></script>
+    <script>
+        // GSAP Animationen
+        gsap.from('.register-card', {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out'
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 
